@@ -1,7 +1,10 @@
+import PageNav from "../components/PageNav";
 import styles from "./Product.module.css";
 
 export default function Product() {
   return (
+    <div>
+      <PageNav />
     <main className={styles.product}>
       <section>
         <img
@@ -24,5 +27,7 @@ export default function Product() {
         </div>
       </section>
     </main>
+    </div>
+
   );
 }

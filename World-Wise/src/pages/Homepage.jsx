@@ -1,7 +1,10 @@
 import styles from "./Homepage.module.css";
+import PageNav from "../components/PageNav";
 
 export default function Homepage() {
   return (
+    <div>
+      <PageNav />
     <main className={styles.homepage}>
       <section>
         <h1>
@@ -16,5 +19,7 @@ export default function Homepage() {
         </h2>
       </section>
     </main>
+    </div>
+
   );
 }
