@@ -4,8 +4,8 @@ import styles from "./Product.module.css";
 export default function Product() {
   return (
     <div>
-      <PageNav />
     <main className={styles.product}>
+      <PageNav />
       <section>
         <img
           src="img-1.jpg"
