@@ -1,5 +1,6 @@
 import styles from "./Login.module.css";
 import {useState} from 'react'
+import PageNav from "../components/PageNav";
 
 
 export default function Login() {
@@ -8,7 +9,9 @@ export default function Login() {
   const [password, setPassword] = useState("qwerty");
 
   return (
+    <div>
     <main className={styles.login}>
+      <PageNav />
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
@@ -35,5 +38,7 @@ export default function Login() {
         </div>
       </form>
     </main>
+    </div>
+
   );
 }
