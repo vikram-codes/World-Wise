@@ -4,7 +4,7 @@ import styles from './Sidebar.module.css'
 
 function Sidebar() {
     return (
-        <div className="sidebar">
+        <div className={styles.sidebar}>
             <Logo />
             <AppNav />
             <p>List of Cities</p>
