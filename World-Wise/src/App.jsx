@@ -2,7 +2,7 @@ import Homepage from './pages/Homepage'
 import Product from './pages/Product'
 import Pricing from './pages/Pricing' 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import PageNotFound from './pages/PageNotFound'
 import AppLayout from './pages/AppLayout'
 import Login from './pages/Login'
@@ -11,11 +11,26 @@ import CityList from './components/CityList'
 
 
 function App() {
-  useEffect(()=>{
-    fetch('http://localhost:8000/cities')
-    .then((res)=>res.json())
-    .then((data)=>console.log(data))
+
+  const [cities, setCities] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(function() {
+    async function fetchCities() {
+      try {
+    setIsLoading(true)
+    const response = await fetch('http://localhost:8000/cities')
+    const data = await response.json()
+    setCities(data) }
+    catch (error) {
+      alert('There was an error loading data...')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+    fetchCities()
 }, [])
+console.log(cities)
 
   return (
     <div>
