@@ -12,15 +12,16 @@ import CityList from './components/CityList'
 
 
 function App() {
+const BASE_URL = 'http://localhost:8000'
 
-  const [cities, setCities] = useState({})
+  const [cities, setCities] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(function() {
     async function fetchCities() {
       try {
     setIsLoading(true)
-    const response = await fetch('http://localhost:8000/cities')
+    const response = await fetch(`${BASE_URL}/cities`)
     const data = await response.json()
     setCities(data) }
     catch (error) {
@@ -41,9 +42,8 @@ console.log(cities)
       <Route path='product' element={<Product />} />
       <Route path='pricing' element={<Pricing />} />
       <Route path='app' element={<AppLayout />}>
-          <Route index element={<CityList />} />
-          <Route path='cities' element={<CityList />} />
-          <Route path='cities' element={<p>Cities</p>} />
+          <Route index element={<CityList cities={cities} isLoading={isLoading} />} />
+          <Route path='cities' element={<CityList cities={cities} isLoading={isLoading} />} />
           <Route path='countries' element={<p>Countries</p>} />
           <Route path='form' element={<p>Form</p>} />
       </Route>
