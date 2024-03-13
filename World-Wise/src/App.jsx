@@ -16,7 +16,7 @@ function App() {
       <Route path='product' element={<Product />} />
       <Route path='pricing' element={<Pricing />} />
       <Route path='app' element={<AppLayout />}>
-          <Route path='cities' element={<p>Cities</p>} />
+          <Route path='cities' index element={<p>Cities</p>} />
           <Route path='countries' element={<p>Countries</p>} />
           <Route path='form' element={<p>Form</p>} />
       </Route>
