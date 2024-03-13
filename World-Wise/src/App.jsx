@@ -2,6 +2,7 @@ import Homepage from './pages/Homepage'
 import Product from './pages/Product'
 import Pricing from './pages/Pricing' 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {useEffect} from 'react'
 import PageNotFound from './pages/PageNotFound'
 import AppLayout from './pages/AppLayout'
 import Login from './pages/Login'
@@ -10,6 +11,11 @@ import CityList from './components/CityList'
 
 
 function App() {
+  useEffect(()=>{
+    fetch('http://localhost:8000/cities')
+    .then((res)=>res.json())
+    .then((data)=>console.log(data))
+}, [])
 
   return (
     <div>
