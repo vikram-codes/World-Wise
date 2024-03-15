@@ -10,10 +10,12 @@ const formatDate = (date) =>
 
 function City() {
 
-
-  const [searchParams, useSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const lat = searchParams.get('lat');
   const lng = searchParams.get('lng');
+
+
+
   const {id} = useParams();
 
 
@@ -31,9 +33,9 @@ function City() {
 
 
    return (<>
-    <h1>City {id} </h1>
-    <p>{lat}</p>
-    <p>{lng}</p>
+    <h1>City {id}
+      postion: {lat} , {lng}
+    </h1>
    </>
 //     <div className={styles.city}>
 //       <div className={styles.row}>
