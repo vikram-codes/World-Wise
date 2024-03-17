@@ -1,4 +1,5 @@
 import styles from "./Login.module.css";
+import {Link} from 'react-router-dom'
 import {useState} from 'react'
 import PageNav from "../components/PageNav";
 import Button from "../components/Button";
@@ -35,7 +36,9 @@ export default function Login() {
         </div>
 
         <div>
+          <Link to='/app' >
           <Button type="primary">Login</Button>
+          </Link>
         </div>
       </form>
     </main>
