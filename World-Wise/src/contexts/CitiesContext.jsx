@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { createContext, useEffect, useState } from "react";
 
 const CitiesContext = createContext();
@@ -24,7 +23,11 @@ function CitiesProvider({ children }) {
     }
     fetchCities();
   }, []);
-  return <div></div>;
+  return (
+    <CitiesContext.Provider value={{ cities, isLoading }}>
+      {children}
+    </CitiesContext.Provider>
+  );
 }
 
-export default CitiesProvider;
+export { CitiesContext, CitiesProvider };
