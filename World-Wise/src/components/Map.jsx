@@ -10,13 +10,20 @@ import {
 } from "react-leaflet";
 import styles from "./Map.module.css";
 import { useState } from "react";
+import Button from "./Button";
 import { useCities } from "../contexts/CitiesContext";
 import { useEffect } from "react";
+import { useGeolocation } from "../hooks/useGeolocation";
 
 function Map() {
   const [searchParams] = useSearchParams();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const { cities } = useCities();
+  const {
+    isLoading: isLoadingPosition,
+    position: gelocationPosition,
+    getPosition,
+  } = useGeolocation();
 
   const mapLat = searchParams.get("lat");
   const mapLng = searchParams.get("lng");
@@ -29,6 +36,9 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <Button type="position" onClick={getPosition}>
+        {isLoadingPosition ? "Loading..." : "Use your position"}
+      </Button>
       <MapContainer
         center={mapPosition}
         zoom={10}
