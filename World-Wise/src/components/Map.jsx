@@ -1,6 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvent,
+} from "react-leaflet";
 import styles from "./Map.module.css";
 import { useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
@@ -9,7 +16,6 @@ import { useEffect } from "react";
 function Map() {
   const [searchParams] = useSearchParams();
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const navigate = useNavigate();
   const { cities } = useCities();
 
   const mapLat = searchParams.get("lat");
@@ -45,6 +51,7 @@ function Map() {
           </Marker>
         ))}
         <ChangeCenter position={[mapLat || 40, mapLng || 0]} />
+        <DetectClick />
       </MapContainer>
     </div>
   );
@@ -54,6 +61,14 @@ function ChangeCenter({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
+}
+
+function DetectClick() {
+  const navigate = useNavigate();
+
+  useMapEvent({
+    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+  });
 }
 
 export default Map;
