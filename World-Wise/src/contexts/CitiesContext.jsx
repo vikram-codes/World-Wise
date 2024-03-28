@@ -37,7 +37,7 @@ function CitiesProvider({ children }) {
         body: JSON.stringify(newCity),
       });
       const data = await response.json();
-      console.log(data);
+      setCities((cities) => [...cities, data]);
     } catch (error) {
       alert("There was an error loading data...");
     } finally {
