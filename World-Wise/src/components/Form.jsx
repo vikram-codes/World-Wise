@@ -5,11 +5,13 @@
 import { useEffect, useState } from "react";
 
 import styles from "./Form.module.css";
+import "react-datepicker/dist/react-datepicker.css";
 import Button from "./Button";
 import BackButton from "./BackButton";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import Spinner from "./Spinner";
 import Message from "./Message";
+import DatePicker from "react-datepicker";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -17,6 +19,10 @@ export function convertToEmoji(countryCode) {
     .split("")
     .map((char) => 127397 + char.charCodeAt());
   return String.fromCodePoint(...codePoints);
+}
+
+function handleSubmit(e) {
+  e.preventDefault();
 }
 
 function Form() {
@@ -46,7 +52,6 @@ function Form() {
 
         setCountry(data.countryName);
         setEmoji(convertToEmoji(data.countryCode));
-        console.log(data);
       } catch (err) {
         setGeoCodingError(err.message);
       } finally {
@@ -62,7 +67,7 @@ function Form() {
     return <Message message="Start by clicking somewhere on map" />;
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -74,11 +79,17 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        {/* <label htmlFor="date">When did you go to {cityName}?</label>
         <input
           id="date"
           onChange={(e) => setDate(e.target.value)}
           value={date}
+        /> */}
+        <DatePicker
+          id="date"
+          selected={date}
+          onChange={(date) => setDate(date)}
+          dateFormat="dd/MM/yyyy"
         />
       </div>
 
