@@ -7,16 +7,17 @@ function User() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   logout();
-  //   navigate("/app");
-  // }, [logout, navigate]);
+  function handleClick(e) {
+    e.preventDefault();
+    logout();
+    navigate("/");
+  }
 
   return (
     <div className={styles.user}>
       <img src={user.avatar} alt={user.name} />
       <span>Welcome, {user.name}</span>
-      <button>Logout</button>
+      <button onClick={handleClick}>Logout</button>
     </div>
   );
 }
