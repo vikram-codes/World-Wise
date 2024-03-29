@@ -1,40 +1,64 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
+      "id": "a07e",
+      "cityName": "Delhi",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2024-03-29T08:29:45.802Z",
       "notes": "",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
+        "lat": "28.60565274180948",
+        "lng": "77.34377145729795"
+      }
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "id": "654b",
+      "cityName": "Abu Dhabi",
+      "country": "United Arab Emirates (the)",
+      "emoji": "🇦🇪",
+      "date": "2023-05-17T08:30:59.000Z",
+      "notes": "",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
+        "lat": "24.621670867846923",
+        "lng": "54.44825789730742"
+      }
+    },
+    {
+      "id": "ae95",
+      "cityName": "Dubai",
+      "country": "United Arab Emirates (the)",
+      "emoji": "🇦🇪",
+      "date": "2023-05-14T08:31:40.000Z",
+      "notes": "",
+      "position": {
+        "lat": "25.3157160637641",
+        "lng": "55.35180287282566"
+      }
+    },
+    {
+      "id": "0b39",
+      "cityName": "Sarnia",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2024-08-20T08:35:19.000Z",
+      "notes": "",
+      "position": {
+        "lat": "42.98998278087582",
+        "lng": "-82.35076142754383"
+      }
+    },
+    {
+      "id": "af88",
+      "cityName": "Toronto",
+      "country": "Canada",
+      "emoji": "🇨🇦",
+      "date": "2024-08-12T08:35:59.000Z",
+      "notes": "",
+      "position": {
+        "lat": "43.66540585539919",
+        "lng": "-79.35424862162405"
+      }
     }
   ]
 }
