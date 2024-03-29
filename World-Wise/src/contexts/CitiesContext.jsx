@@ -120,6 +120,7 @@ function CitiesProvider({ children }) {
   }
 
   async function getCity(id) {
+    if (Number(id) === currentCity.id) return;
     dispatch({ type: "loading" });
     try {
       const response = await fetch(`${BASE_URL}/cities/${id}`);
@@ -138,6 +139,7 @@ function CitiesProvider({ children }) {
       value={{
         cities,
         isLoading,
+        error,
         currentCity,
         getCity,
         createCity,
